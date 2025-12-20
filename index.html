@@ -1,1 +1,473 @@
-Hello world
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>vamoali.app - convites para viver mais a cidade</title>
+    <meta
+      name="description"
+      content="vamoali.app conecta pessoas a experiencias locais com convites simples, rapidos e humanos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f1ea;
+        --ink: #1c1a17;
+        --muted: #655f56;
+        --accent: #e56f3b;
+        --accent-2: #1f8a78;
+        --panel: #fff6ec;
+        --stroke: rgba(28, 26, 23, 0.12);
+        --shadow: 0 24px 60px rgba(27, 23, 17, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #fff2df 0%, transparent 55%),
+          radial-gradient(circle at 10% 20%, rgba(31, 138, 120, 0.18), transparent 45%),
+          var(--bg);
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-mark {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 6px 16px rgba(229, 111, 59, 0.35);
+      }
+
+      nav {
+        display: flex;
+        gap: 18px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta.primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(229, 111, 59, 0.35);
+      }
+
+      .cta.secondary {
+        background: transparent;
+        border-color: var(--stroke);
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(27, 23, 17, 0.2);
+      }
+
+      .hero {
+        margin-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 36px;
+        align-items: center;
+      }
+
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.6rem, 4vw, 3.8rem);
+        margin: 0 0 20px;
+        letter-spacing: -0.01em;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0 0 24px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .hero-card {
+        background: var(--panel);
+        border-radius: 26px;
+        padding: 28px;
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card h3 {
+        margin: 0 0 14px;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .list-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        margin-top: 6px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      section {
+        margin-top: 90px;
+      }
+
+      .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 640px;
+        margin-bottom: 28px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .feature-card {
+        padding: 22px;
+        border-radius: 20px;
+        border: 1px solid var(--stroke);
+        background: #fff;
+      }
+
+      .feature-card h4 {
+        margin: 0 0 10px;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .steps {
+        display: grid;
+        gap: 18px;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        border: 1px dashed var(--stroke);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .step-number {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: rgba(31, 138, 120, 0.14);
+      }
+
+      .waitlist {
+        display: grid;
+        gap: 16px;
+        align-items: center;
+        padding: 26px;
+        border-radius: 22px;
+        background: linear-gradient(120deg, #fff 0%, #fff6ec 100%);
+        border: 1px solid var(--stroke);
+      }
+
+      .waitlist form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      input[type="email"] {
+        flex: 1 1 240px;
+        border-radius: 999px;
+        border: 1px solid var(--stroke);
+        padding: 12px 16px;
+        font-size: 1rem;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+
+      footer {
+        margin-top: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.15s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.45s;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        nav {
+          display: none;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero {
+          margin-top: 40px;
+        }
+
+        .hero-card {
+          order: -1;
+        }
+
+        .step {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="logo"><span class="logo-mark"></span>vamoali.app</div>
+        <nav>
+          <a href="#manifesto">Manifesto</a>
+          <a href="#recursos">Recursos</a>
+          <a href="#como">Como funciona</a>
+          <a href="#acesso">Acesso</a>
+        </nav>
+        <a class="cta secondary" href="#acesso">Pedir convite</a>
+      </header>
+
+      <section class="hero" id="manifesto">
+        <div>
+          <h1 class="reveal">Convites sinceros para viver a cidade com mais gente.</h1>
+          <p class="reveal delay-1">
+            vamoali.app junta pessoas com a mesma vontade: sair do feed e ir para o
+            mundo real. Sem pressao, sem ruido. So convites que cabem na agenda e
+            nas afinidades de cada um.
+          </p>
+          <div class="hero-actions reveal delay-2">
+            <a class="cta primary" href="#acesso">Quero participar</a>
+            <a class="cta secondary" href="#recursos">Ver o que muda</a>
+          </div>
+          <div class="hero-meta reveal delay-3">
+            <span>Convites curados</span>
+            <span>Grupos pequenos</span>
+            <span>Experiencias locais</span>
+          </div>
+        </div>
+        <div class="hero-card reveal delay-2">
+          <h3>O que muda na pratica</h3>
+          <div class="list">
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>Ritmo humano.</strong>
+                <div>Convites com antecedencia e tempo realista.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>Match de energia.</strong>
+                <div>Voce escolhe o clima antes de confirmar.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>Encontro sem ansiedade.</strong>
+                <div>Grupos pequenos com objetivo claro.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recursos">
+        <div class="section-title">Recursos pensados para a vida real</div>
+        <div class="section-subtitle">
+          Tudo foi desenhado para facilitar o \"bora\" sem precisar explicar demais
+          ou ficar preso em conversas infinitas.
+        </div>
+        <div class="features">
+          <div class="feature-card reveal">
+            <h4>Mapa de convites</h4>
+            <p>Veja o que esta acontecendo por perto e filtre por vibe.</p>
+          </div>
+          <div class="feature-card reveal delay-1">
+            <h4>Resposta rapida</h4>
+            <p>Confirmou? O convite vira plano, com horario e endereco.</p>
+          </div>
+          <div class="feature-card reveal delay-2">
+            <h4>Dupla curadoria</h4>
+            <p>Experiencias locais validas pela comunidade.</p>
+          </div>
+          <div class="feature-card reveal delay-3">
+            <h4>Memorias compartilhadas</h4>
+            <p>Releve as experiencias e guarde as melhores vibes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="como">
+        <div class="section-title">Como funciona</div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-number">1</div>
+            <div>
+              <strong>Conte sua vibe.</strong>
+              <div>Selecione o que te energiza: cafe, musica, museu, trilha.</div>
+            </div>
+          </div>
+          <div class="step reveal delay-1">
+            <div class="step-number">2</div>
+            <div>
+              <strong>Receba convites.</strong>
+              <div>Selecionamos experiencias compativeis com seu ritmo.</div>
+            </div>
+          </div>
+          <div class="step reveal delay-2">
+            <div class="step-number">3</div>
+            <div>
+              <strong>Confirme com leveza.</strong>
+              <div>Convite aceito vira encontro, com tudo organizado.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="acesso">
+        <div class="section-title">Primeiros convites</div>
+        <div class="waitlist">
+          <div>
+            <strong>Entre na lista de acesso antecipado.</strong>
+            <div class="section-subtitle">
+              Estamos liberando convites por cidade. Deixe seu email e sua cidade
+              para receber as primeiras datas.
+            </div>
+          </div>
+          <form>
+            <input type="email" name="email" placeholder="voce@email.com" required />
+            <button class="cta primary" type="submit">Quero meu convite</button>
+          </form>
+          <div class="section-subtitle">Sem spam. So um convite quando tudo estiver pronto.</div>
+        </div>
+      </section>
+
+      <footer>
+        <div>vamoali.app (c) 2024</div>
+        <div>Feito para encontros que acontecem de verdade.</div>
+      </footer>
+    </div>
+  </body>
+</html>
