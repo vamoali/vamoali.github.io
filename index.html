@@ -173,6 +173,25 @@
         fill: var(--brand-blue);
       }
 
+      .status-banner {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: rgba(0, 87, 184, 0.08);
+        color: var(--brand-navy);
+        border: 1px solid rgba(0, 87, 184, 0.2);
+        font-weight: 600;
+      }
+
+      .status-banner svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--brand-blue);
+        flex-shrink: 0;
+      }
+
       .hero-card {
         background: var(--panel);
         border-radius: 26px;
@@ -528,8 +547,6 @@
             perfil, no seu tempo.
           </p>
 
-          <div class="hero-meta reveal delay-3">
-          </div>
         </div>
 
         <div class="hero-card reveal delay-2">
@@ -559,6 +576,17 @@
           </div>
         </div>
       </section>
+
+      <section>
+          <div class="hero-meta reveal delay-3">
+            <div class="status-banner" role="status" aria-live="polite">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2zm0 4a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 12 6zm1.5 11h-3a1 1 0 0 1 0-2h1v-4h-1a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v5h1a1 1 0 0 1 0 2z"/>
+              </svg>
+              Estamos construindo essa plataforma neste momento.
+            </div>
+          </div>
+        </section>
 
       <section id="recursos">
         <div class="section-title">Benefícios para quem quer viajar bem</div>
