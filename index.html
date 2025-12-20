@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>vamoali.app - hoteis e passagens com foco no viajante</title>
+    <title>vamoali.app - hotéis e passagens com foco no viajante</title>
     <meta
       name="description"
-      content="vamoali.app facilita a compra de hoteis e passagens aereas com transparencia, seguranca e foco no usuario."
+      content="vamoali.app facilita a compra de hotéis e passagens aéreas com transparência, segurança e foco no usuário."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,10 +20,11 @@
         --bg: #ffffff;
         --ink: #1a1f2b;
         --muted: #5b6375;
+        --panel: #f2f4f7;
+        --panel-strong: #e6e9ee;
         --brand-blue: #0057b8;
         --brand-yellow: #ffd200;
         --brand-navy: #023a75;
-        --brand-sand: #fff6d9;
         --accent: #00a3a3;
         --stroke: rgba(2, 58, 117, 0.12);
         --shadow: 0 24px 60px rgba(2, 58, 117, 0.16);
@@ -49,14 +50,19 @@
       .page {
         max-width: 1140px;
         margin: 0 auto;
-        padding: 32px 20px 80px;
+
       }
 
       header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 24px;
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+      }
+
+      header .store-badges {
+        margin-left: auto;
       }
 
       .logo {
@@ -70,8 +76,8 @@
       }
 
       .logo img {
-        width: 40px;
-        height: 40px;
+        width: 256px;
+        height: 256px;
         object-fit: contain;
       }
 
@@ -144,10 +150,34 @@
         flex-wrap: wrap;
         color: var(--muted);
         font-size: 0.95rem;
+        justify-content: center;
+      }
+
+      .hero > .hero-meta {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+      }
+
+      .hero-meta .meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .hero-meta .meta-item svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        fill: var(--brand-blue);
       }
 
       .hero-card {
-        background: var(--brand-sand);
+        background: var(--panel);
         border-radius: 26px;
         padding: 28px;
         border: 1px solid var(--stroke);
@@ -204,7 +234,7 @@
         padding: 22px;
         border-radius: 20px;
         border: 1px solid var(--stroke);
-        background: #fff;
+        background: var(--panel);
         box-shadow: 0 16px 40px rgba(2, 58, 117, 0.08);
       }
 
@@ -225,7 +255,7 @@
         padding: 18px 20px;
         border-radius: 18px;
         border: 1px dashed var(--stroke);
-        background: rgba(255, 246, 217, 0.6);
+        background: var(--panel);
       }
 
       .step-number {
@@ -245,7 +275,7 @@
         align-items: center;
         padding: 26px;
         border-radius: 22px;
-        background: linear-gradient(120deg, #ffffff 0%, #fff6d9 100%);
+        background: linear-gradient(120deg, #ffffff 0%, var(--panel) 100%);
         border: 1px solid var(--stroke);
       }
 
@@ -271,13 +301,73 @@
 
       footer {
         margin-top: 80px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        align-items: center;
-        justify-content: space-between;
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        border-top: 1px solid var(--stroke);
+        background: linear-gradient(180deg, transparent, rgba(0,0,0,0.01));
+        padding: 28px 18px;
+        border-radius: 12px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+        align-items: start;
+        max-width: 1140px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-col a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .footer-logo {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 1.05rem;
+      }
+
+      .footer-links a {
+        display: block;
+        padding: 6px 0;
+      }
+
+      .footer-links {
+        grid-column: 3 / 4;
+        justify-self: end;
+        text-align: right;
+      }
+
+      .footer-contact {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .footer-bottom {
+        margin-top: 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 720px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .logo img { width: 160px; height: auto; }
+      }
       }
 
       .footer-actions {
@@ -300,6 +390,46 @@
         width: 24px;
         height: 24px;
         fill: #fff;
+      }
+
+      .store-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .store-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 12px;
+        border-radius: 12px;
+        background: var(--panel-strong);
+        color: var(--ink);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--stroke);
+        box-shadow: 0 10px 24px rgba(2, 58, 117, 0.08);
+      }
+
+      .store-badge span {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 500;
+        opacity: 0.7;
+      }
+
+      .store-badge strong {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .store-badge svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--ink);
+        flex-shrink: 0;
       }
 
       .reveal {
@@ -340,6 +470,10 @@
           align-items: flex-start;
         }
 
+        header .store-badges {
+          margin-left: 0;
+        }
+
         .hero {
           margin-top: 40px;
         }
@@ -359,58 +493,70 @@
     <div class="page">
       <header>
         <div class="logo">
-          <img src="assets/logo.png" alt="vamoali.app logo" />
-          <span>vamoali.app</span>
+          <img src="assets/logo.png" alt="vamoali.app logo"/>
         </div>
-        <nav>
-          <a href="#manifesto">Proposta</a>
-          <a href="#recursos">Beneficios</a>
-          <a href="#como">Como funciona</a>
-          <a href="#acesso">Contato</a>
-        </nav>
-        <a class="cta secondary" href="mailto:contato@vamoali.app">Falar com a equipe</a>
+
+        <div class="store-badges">
+          <a class="store-badge" href="#" aria-label="Baixar na App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M17.2 6.4c-.9 1-2 1.6-3.3 1.5-.1-1.3.5-2.6 1.3-3.4.9-.9 2.4-1.5 3.5-1.6.1 1.3-.4 2.5-1.5 3.5zM20.5 17.2c-.4 1-1 2-1.7 2.9-1 1.3-1.9 2.2-3.5 2.2-1.5 0-1.9-.9-3.7-.9s-2.2.9-3.7.9c-1.5 0-2.6-1-3.6-2.3-2-2.7-3.5-7.6-1.5-11 1-1.6 2.7-2.6 4.6-2.6 1.5 0 2.9 1 3.7 1s2.4-1.2 4.1-1c.7 0 2.7.3 3.9 2.1-.1.1-2.3 1.3-2.2 3.9 0 3.1 2.8 4.1 2.9 4.1-.1.3-.4 1.1-.8 1.7z"
+              />
+            </svg>
+            <div>
+              <span>Baixar na</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a class="store-badge" href="#" aria-label="Baixar no Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4.8 3.4l10.2 8.2-2.6 2.4-7.6-10.6zM3.8 2.6c-.4.3-.6.8-.6 1.3v16.2c0 .6.3 1.1.7 1.3l7.2-7-7.3-11.8zM20.2 11c.6.4.6 1.3 0 1.7l-3.1 2.2-3-2.8 3-2.8 3.1 1.7zM5.1 21l7.4-7.1 2.6 2.5-10.2 8.3c-.1-.1-.1-.4.2-.7z"
+              />
+            </svg>
+            <div>
+              <span>Disponível no</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
       </header>
 
       <section class="hero" id="manifesto">
         <div>
-          <h1 class="reveal">Hoteis e passagens com foco total em voce.</h1>
+          <h1 class="reveal">Hotéis e passagens aéreas com foco total em você.</h1>
           <p class="reveal delay-1">
-            A vamoali.app facilita a compra de viagens com clareza, seguranca e
-            apoio humano. Sem promessas falsas: so o que faz sentido para o seu
+            A vamoali.app facilita a compra de viagens com clareza, segurança e
+            apoio humano. Sem promessas falsas: só o que faz sentido para o seu
             perfil, no seu tempo.
           </p>
-          <div class="hero-actions reveal delay-2">
-            <a class="cta primary" href="mailto:contato@vamoali.app">Quero planejar agora</a>
-            <a class="cta secondary" href="#recursos">Ver beneficios</a>
-          </div>
+
           <div class="hero-meta reveal delay-3">
-            <span>Hoteis verificados</span>
-            <span>Voos com comparacao real</span>
-            <span>Suporte humano</span>
           </div>
         </div>
+
         <div class="hero-card reveal delay-2">
           <h3>Viagem simples e segura</h3>
           <div class="list">
             <div class="list-item">
               <span class="dot"></span>
               <div>
-                <strong>Preco transparente.</strong>
-                <div>Sem taxas escondidas ou promessas irreais.</div>
+                  <strong>Preço transparente.</strong>
+                  <div>Sem taxas escondidas ou promessas irreais.</div>
               </div>
             </div>
             <div class="list-item">
               <span class="dot"></span>
               <div>
-                <strong>Reserva confiavel.</strong>
-                <div>Hoteis e companhias avaliados com criterio.</div>
+                  <strong>Reserva confiável.</strong>
+                  <div>Hotéis e companhias avaliados com critério.</div>
               </div>
             </div>
             <div class="list-item">
               <span class="dot"></span>
               <div>
                 <strong>Atendimento real.</strong>
-                <div>Voce fala com pessoas, nao com robos.</div>
+                  <div>Você fala com pessoas, não com robôs.</div>
               </div>
             </div>
           </div>
@@ -418,27 +564,31 @@
       </section>
 
       <section id="recursos">
-        <div class="section-title">Beneficios para quem quer viajar bem</div>
+        <div class="section-title">Benefícios para quem quer viajar bem</div>
         <div class="section-subtitle">
-          Cada detalhe existe para simplificar sua escolha e garantir uma compra
-          segura, com foco no que realmente importa para voce.
+          Utilizamos inteligência artificial para personalizar buscas ao seu
+          perfil, priorizando as opções mais relevantes e uma experiência mais
+          simples e eficiente para você.
         </div>
         <div class="features">
           <div class="feature-card reveal">
-            <h4>Comparacao inteligente</h4>
-            <p>Veja hoteis e voos lado a lado com informacoes claras.</p>
+            <h4>Comparação inteligente com IA</h4>
+            <p>Nossa IA compara hotéis e voos com base no seu perfil, destacando
+            as melhores opções para você.</p>
           </div>
           <div class="feature-card reveal delay-1">
-            <h4>Processo sem ansiedade</h4>
-            <p>Fluxo leve, sem etapas que travam a sua decisao.</p>
+            <h4>Experiência simplificada</h4>
+            <p>A IA reduz etapas e apresenta escolhas claras para você decidir
+            com menos ansiedade.</p>
           </div>
           <div class="feature-card reveal delay-2">
-            <h4>Seguranca em primeiro lugar</h4>
-            <p>Dados protegidos e parceiros alinhados com boas praticas.</p>
+            <h4>Segurança em primeiro lugar</h4>
+            <p>Dados protegidos e parceiros alinhados com boas práticas.</p>
           </div>
           <div class="feature-card reveal delay-3">
-            <h4>Foco no usuario</h4>
-            <p>Recomendacoes honestas para o seu tipo de viagem.</p>
+            <h4>Recomendações personalizadas</h4>
+            <p>Combinação de IA e curadoria humana para sugestões honestas e
+            adequadas ao seu tipo de viagem.</p>
           </div>
         </div>
       </section>
@@ -449,61 +599,44 @@
           <div class="step reveal">
             <div class="step-number">1</div>
             <div>
-              <strong>Conte seu destino.</strong>
-              <div>Informe para onde voce quer ir e quais datas importam.</div>
+              <strong>Conte seu destino e preferências.</strong>
+              <div>Diga para onde quer ir, datas e preferências — nossa IA
+              aprende seu perfil para buscar opções relevantes de roteiro.</div>
             </div>
           </div>
           <div class="step reveal delay-1">
             <div class="step-number">2</div>
             <div>
-              <strong>Receba as melhores opcoes.</strong>
-              <div>Selecionamos hoteis e voos que cabem no seu perfil.</div>
+              <strong>Receba opções selecionadas pela IA.</strong>
+              <div>A IA filtra e ordena hotéis e voos que combinam com você,
+              apresentando comparações claras para facilitar a escolha.</div>
             </div>
           </div>
           <div class="step reveal delay-2">
             <div class="step-number">3</div>
             <div>
-              <strong>Finalize com seguranca.</strong>
-              <div>Voce confirma com apoio humano e total transparencia.</div>
+              <strong>Confirme com apoio humano.</strong>
+              <div>Finalize com total transparência: nossa equipe está pronta
+              para ajudar quando você precisar.</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="acesso">
-        <div class="section-title">Pronto para viajar com clareza?</div>
-        <div class="waitlist">
-          <div>
-            <strong>Fale com a equipe vamoali.app.</strong>
-            <div class="section-subtitle">
-              Conte o que voce precisa e receba um atendimento direto, sem
-              promessas que nao cabem na realidade da sua viagem.
-            </div>
-          </div>
-          <form>
-            <input type="email" name="email" placeholder="voce@email.com" required />
-            <button class="cta primary" type="submit">Quero atendimento</button>
-          </form>
-          <div class="section-subtitle">Ou envie um email direto: contato@vamoali.app</div>
         </div>
       </section>
 
       <footer>
-        <div>vamoali.app (c) 2024</div>
-        <div class="footer-actions">
-          <span>contato@vamoali.app</span>
-          <a
-            class="whatsapp-btn"
-            href="https://wa.me/5512992218616"
-            aria-label="Conversar no WhatsApp"
-          >
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <path
-                d="M16.02 3C9.39 3 4 8.38 4 15c0 2.26.63 4.37 1.73 6.17L4 29l8.08-1.68A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.62 28 15S22.65 3 16.02 3zm0 21.83c-1.88 0-3.63-.55-5.1-1.5l-.36-.22-4.8 1 1.02-4.67-.25-.38a9.68 9.68 0 0 1-1.53-5.06c0-5.37 4.4-9.75 9.82-9.75 5.42 0 9.84 4.38 9.84 9.75 0 5.37-4.42 9.83-9.84 9.83zm5.5-7.31c-.3-.15-1.77-.87-2.04-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.23-.65.08-.3-.15-1.24-.46-2.36-1.47-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.58c-.2 0-.53.08-.8.38-.27.3-1.06 1.04-1.06 2.54 0 1.5 1.09 2.95 1.24 3.16.15.2 2.15 3.28 5.22 4.6.73.32 1.3.51 1.75.65.74.24 1.42.2 1.95.12.6-.09 1.77-.72 2.02-1.4.25-.68.25-1.26.17-1.38-.08-.12-.27-.2-.56-.35z"
-              />
-            </svg>
-          </a>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">vamoali.app</div>
+            <div>Hotéis e passagens aéreas com foco total em você — tecnologia e apoio humano.</div>
+          </div>
+          <div class="footer-col footer-links">
+            <a href="#manifesto">Proposta</a>
+            <a href="#recursos">Benefícios</a>
+            <a href="#como">Como funciona</a>
+            <a href="#acesso">Contato</a>
+          </div>
         </div>
+        <div class="footer-bottom">vamoali.app © 2026 — Tecnologia para buscar hotéis e passagens aéreas utilizando IA para uma melhor experiência.</div>
       </footer>
     </div>
   </body>
