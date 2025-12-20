@@ -3,28 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>vamoali.app - convites para viver mais a cidade</title>
+    <title>vamoali.app - hoteis e passagens com foco no viajante</title>
     <meta
       name="description"
-      content="vamoali.app conecta pessoas a experiencias locais com convites simples, rapidos e humanos."
+      content="vamoali.app facilita a compra de hoteis e passagens aereas com transparencia, seguranca e foco no usuario."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         color-scheme: light;
-        --bg: #f6f1ea;
-        --ink: #1c1a17;
-        --muted: #655f56;
-        --accent: #e56f3b;
-        --accent-2: #1f8a78;
-        --panel: #fff6ec;
-        --stroke: rgba(28, 26, 23, 0.12);
-        --shadow: 0 24px 60px rgba(27, 23, 17, 0.18);
+        --bg: #ffffff;
+        --ink: #1a1f2b;
+        --muted: #5b6375;
+        --brand-blue: #0057b8;
+        --brand-yellow: #ffd200;
+        --brand-navy: #023a75;
+        --brand-sand: #fff6d9;
+        --accent: #00a3a3;
+        --stroke: rgba(2, 58, 117, 0.12);
+        --shadow: 0 24px 60px rgba(2, 58, 117, 0.16);
       }
 
       * {
@@ -33,11 +35,9 @@
 
       body {
         margin: 0;
-        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
         color: var(--ink);
-        background: radial-gradient(circle at top, #fff2df 0%, transparent 55%),
-          radial-gradient(circle at 10% 20%, rgba(31, 138, 120, 0.18), transparent 45%),
-          var(--bg);
+        background: var(--bg);
         min-height: 100vh;
       }
 
@@ -47,7 +47,7 @@
       }
 
       .page {
-        max-width: 1120px;
+        max-width: 1140px;
         margin: 0 auto;
         padding: 32px 20px 80px;
       }
@@ -60,7 +60,7 @@
       }
 
       .logo {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
         font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.02em;
@@ -69,12 +69,10 @@
         gap: 10px;
       }
 
-      .logo-mark {
-        width: 16px;
-        height: 16px;
-        border-radius: 4px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 6px 16px rgba(229, 111, 59, 0.35);
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
       }
 
       nav {
@@ -96,9 +94,9 @@
       }
 
       .cta.primary {
-        background: var(--accent);
+        background: var(--brand-blue);
         color: #fff;
-        box-shadow: 0 12px 24px rgba(229, 111, 59, 0.35);
+        box-shadow: 0 12px 24px rgba(0, 87, 184, 0.28);
       }
 
       .cta.secondary {
@@ -120,7 +118,7 @@
       }
 
       h1 {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
         font-size: clamp(2.6rem, 4vw, 3.8rem);
         margin: 0 0 20px;
         letter-spacing: -0.01em;
@@ -149,7 +147,7 @@
       }
 
       .hero-card {
-        background: var(--panel);
+        background: var(--brand-sand);
         border-radius: 26px;
         padding: 28px;
         border: 1px solid var(--stroke);
@@ -158,7 +156,7 @@
 
       .hero-card h3 {
         margin: 0 0 14px;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
       }
 
       .list {
@@ -177,7 +175,7 @@
         height: 10px;
         margin-top: 6px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        background: linear-gradient(135deg, var(--brand-blue), var(--accent));
       }
 
       section {
@@ -185,7 +183,7 @@
       }
 
       .section-title {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
         font-size: 2rem;
         margin-bottom: 16px;
       }
@@ -207,11 +205,12 @@
         border-radius: 20px;
         border: 1px solid var(--stroke);
         background: #fff;
+        box-shadow: 0 16px 40px rgba(2, 58, 117, 0.08);
       }
 
       .feature-card h4 {
         margin: 0 0 10px;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
       }
 
       .steps {
@@ -226,18 +225,18 @@
         padding: 18px 20px;
         border-radius: 18px;
         border: 1px dashed var(--stroke);
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 246, 217, 0.6);
       }
 
       .step-number {
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Sora", sans-serif;
         font-weight: 700;
         width: 38px;
         height: 38px;
         display: grid;
         place-items: center;
         border-radius: 12px;
-        background: rgba(31, 138, 120, 0.14);
+        background: rgba(0, 87, 184, 0.14);
       }
 
       .waitlist {
@@ -246,7 +245,7 @@
         align-items: center;
         padding: 26px;
         border-radius: 22px;
-        background: linear-gradient(120deg, #fff 0%, #fff6ec 100%);
+        background: linear-gradient(120deg, #ffffff 0%, #fff6d9 100%);
         border: 1px solid var(--stroke);
       }
 
@@ -267,7 +266,7 @@
       button {
         cursor: pointer;
         border: none;
-        font-family: "IBM Plex Sans", sans-serif;
+        font-family: "Manrope", sans-serif;
       }
 
       footer {
@@ -279,6 +278,28 @@
         justify-content: space-between;
         color: var(--muted);
         font-size: 0.9rem;
+      }
+
+      .footer-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .whatsapp-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #25d366;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 12px 20px rgba(37, 211, 102, 0.35);
+      }
+
+      .whatsapp-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: #fff;
       }
 
       .reveal {
@@ -337,56 +358,59 @@
   <body>
     <div class="page">
       <header>
-        <div class="logo"><span class="logo-mark"></span>vamoali.app</div>
+        <div class="logo">
+          <img src="assets/logo.png" alt="vamoali.app logo" />
+          <span>vamoali.app</span>
+        </div>
         <nav>
-          <a href="#manifesto">Manifesto</a>
-          <a href="#recursos">Recursos</a>
+          <a href="#manifesto">Proposta</a>
+          <a href="#recursos">Beneficios</a>
           <a href="#como">Como funciona</a>
-          <a href="#acesso">Acesso</a>
+          <a href="#acesso">Contato</a>
         </nav>
-        <a class="cta secondary" href="#acesso">Pedir convite</a>
+        <a class="cta secondary" href="mailto:contato@vamoali.app">Falar com a equipe</a>
       </header>
 
       <section class="hero" id="manifesto">
         <div>
-          <h1 class="reveal">Convites sinceros para viver a cidade com mais gente.</h1>
+          <h1 class="reveal">Hoteis e passagens com foco total em voce.</h1>
           <p class="reveal delay-1">
-            vamoali.app junta pessoas com a mesma vontade: sair do feed e ir para o
-            mundo real. Sem pressao, sem ruido. So convites que cabem na agenda e
-            nas afinidades de cada um.
+            A vamoali.app facilita a compra de viagens com clareza, seguranca e
+            apoio humano. Sem promessas falsas: so o que faz sentido para o seu
+            perfil, no seu tempo.
           </p>
           <div class="hero-actions reveal delay-2">
-            <a class="cta primary" href="#acesso">Quero participar</a>
-            <a class="cta secondary" href="#recursos">Ver o que muda</a>
+            <a class="cta primary" href="mailto:contato@vamoali.app">Quero planejar agora</a>
+            <a class="cta secondary" href="#recursos">Ver beneficios</a>
           </div>
           <div class="hero-meta reveal delay-3">
-            <span>Convites curados</span>
-            <span>Grupos pequenos</span>
-            <span>Experiencias locais</span>
+            <span>Hoteis verificados</span>
+            <span>Voos com comparacao real</span>
+            <span>Suporte humano</span>
           </div>
         </div>
         <div class="hero-card reveal delay-2">
-          <h3>O que muda na pratica</h3>
+          <h3>Viagem simples e segura</h3>
           <div class="list">
             <div class="list-item">
               <span class="dot"></span>
               <div>
-                <strong>Ritmo humano.</strong>
-                <div>Convites com antecedencia e tempo realista.</div>
+                <strong>Preco transparente.</strong>
+                <div>Sem taxas escondidas ou promessas irreais.</div>
               </div>
             </div>
             <div class="list-item">
               <span class="dot"></span>
               <div>
-                <strong>Match de energia.</strong>
-                <div>Voce escolhe o clima antes de confirmar.</div>
+                <strong>Reserva confiavel.</strong>
+                <div>Hoteis e companhias avaliados com criterio.</div>
               </div>
             </div>
             <div class="list-item">
               <span class="dot"></span>
               <div>
-                <strong>Encontro sem ansiedade.</strong>
-                <div>Grupos pequenos com objetivo claro.</div>
+                <strong>Atendimento real.</strong>
+                <div>Voce fala com pessoas, nao com robos.</div>
               </div>
             </div>
           </div>
@@ -394,27 +418,27 @@
       </section>
 
       <section id="recursos">
-        <div class="section-title">Recursos pensados para a vida real</div>
+        <div class="section-title">Beneficios para quem quer viajar bem</div>
         <div class="section-subtitle">
-          Tudo foi desenhado para facilitar o \"bora\" sem precisar explicar demais
-          ou ficar preso em conversas infinitas.
+          Cada detalhe existe para simplificar sua escolha e garantir uma compra
+          segura, com foco no que realmente importa para voce.
         </div>
         <div class="features">
           <div class="feature-card reveal">
-            <h4>Mapa de convites</h4>
-            <p>Veja o que esta acontecendo por perto e filtre por vibe.</p>
+            <h4>Comparacao inteligente</h4>
+            <p>Veja hoteis e voos lado a lado com informacoes claras.</p>
           </div>
           <div class="feature-card reveal delay-1">
-            <h4>Resposta rapida</h4>
-            <p>Confirmou? O convite vira plano, com horario e endereco.</p>
+            <h4>Processo sem ansiedade</h4>
+            <p>Fluxo leve, sem etapas que travam a sua decisao.</p>
           </div>
           <div class="feature-card reveal delay-2">
-            <h4>Dupla curadoria</h4>
-            <p>Experiencias locais validas pela comunidade.</p>
+            <h4>Seguranca em primeiro lugar</h4>
+            <p>Dados protegidos e parceiros alinhados com boas praticas.</p>
           </div>
           <div class="feature-card reveal delay-3">
-            <h4>Memorias compartilhadas</h4>
-            <p>Releve as experiencias e guarde as melhores vibes.</p>
+            <h4>Foco no usuario</h4>
+            <p>Recomendacoes honestas para o seu tipo de viagem.</p>
           </div>
         </div>
       </section>
@@ -425,48 +449,61 @@
           <div class="step reveal">
             <div class="step-number">1</div>
             <div>
-              <strong>Conte sua vibe.</strong>
-              <div>Selecione o que te energiza: cafe, musica, museu, trilha.</div>
+              <strong>Conte seu destino.</strong>
+              <div>Informe para onde voce quer ir e quais datas importam.</div>
             </div>
           </div>
           <div class="step reveal delay-1">
             <div class="step-number">2</div>
             <div>
-              <strong>Receba convites.</strong>
-              <div>Selecionamos experiencias compativeis com seu ritmo.</div>
+              <strong>Receba as melhores opcoes.</strong>
+              <div>Selecionamos hoteis e voos que cabem no seu perfil.</div>
             </div>
           </div>
           <div class="step reveal delay-2">
             <div class="step-number">3</div>
             <div>
-              <strong>Confirme com leveza.</strong>
-              <div>Convite aceito vira encontro, com tudo organizado.</div>
+              <strong>Finalize com seguranca.</strong>
+              <div>Voce confirma com apoio humano e total transparencia.</div>
             </div>
           </div>
         </div>
       </section>
 
       <section id="acesso">
-        <div class="section-title">Primeiros convites</div>
+        <div class="section-title">Pronto para viajar com clareza?</div>
         <div class="waitlist">
           <div>
-            <strong>Entre na lista de acesso antecipado.</strong>
+            <strong>Fale com a equipe vamoali.app.</strong>
             <div class="section-subtitle">
-              Estamos liberando convites por cidade. Deixe seu email e sua cidade
-              para receber as primeiras datas.
+              Conte o que voce precisa e receba um atendimento direto, sem
+              promessas que nao cabem na realidade da sua viagem.
             </div>
           </div>
           <form>
             <input type="email" name="email" placeholder="voce@email.com" required />
-            <button class="cta primary" type="submit">Quero meu convite</button>
+            <button class="cta primary" type="submit">Quero atendimento</button>
           </form>
-          <div class="section-subtitle">Sem spam. So um convite quando tudo estiver pronto.</div>
+          <div class="section-subtitle">Ou envie um email direto: contato@vamoali.app</div>
         </div>
       </section>
 
       <footer>
         <div>vamoali.app (c) 2024</div>
-        <div>Feito para encontros que acontecem de verdade.</div>
+        <div class="footer-actions">
+          <span>contato@vamoali.app</span>
+          <a
+            class="whatsapp-btn"
+            href="https://wa.me/5512992218616"
+            aria-label="Conversar no WhatsApp"
+          >
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path
+                d="M16.02 3C9.39 3 4 8.38 4 15c0 2.26.63 4.37 1.73 6.17L4 29l8.08-1.68A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.62 28 15S22.65 3 16.02 3zm0 21.83c-1.88 0-3.63-.55-5.1-1.5l-.36-.22-4.8 1 1.02-4.67-.25-.38a9.68 9.68 0 0 1-1.53-5.06c0-5.37 4.4-9.75 9.82-9.75 5.42 0 9.84 4.38 9.84 9.75 0 5.37-4.42 9.83-9.84 9.83zm5.5-7.31c-.3-.15-1.77-.87-2.04-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.23-.65.08-.3-.15-1.24-.46-2.36-1.47-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.58c-.2 0-.53.08-.8.38-.27.3-1.06 1.04-1.06 2.54 0 1.5 1.09 2.95 1.24 3.16.15.2 2.15 3.28 5.22 4.6.73.32 1.3.51 1.75.65.74.24 1.42.2 1.95.12.6-.09 1.77-.72 2.02-1.4.25-.68.25-1.26.17-1.38-.08-.12-.27-.2-.56-.35z"
+              />
+            </svg>
+          </a>
+        </div>
       </footer>
     </div>
   </body>
