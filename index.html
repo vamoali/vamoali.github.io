@@ -6,28 +6,24 @@
     <title>Vamoali - hotéis e passagens aéreas com foco total em você</title>
     <meta
       name="description"
-      content="vamoali.app facilita a compra de hotéis e passagens aéreas com transparência, segurança e foco no usuário."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      content="Vamoali facilita a compra de hotéis e passagens aéreas com transparência, segurança e foco no usuário."
     />
     <style>
       :root {
         color-scheme: light;
-        --bg: #ffffff;
-        --ink: #1a1f2b;
-        --muted: #5b6375;
-        --panel: #f2f4f7;
-        --panel-strong: #e6e9ee;
-        --brand-blue: #0057b8;
-        --brand-yellow: #ffd200;
-        --brand-navy: #023a75;
-        --accent: #00a3a3;
-        --stroke: rgba(2, 58, 117, 0.12);
-        --shadow: 0 24px 60px rgba(2, 58, 117, 0.16);
+        --ink: #1b274f;
+        --muted: #555555;
+        --brand: #1b274f;
+        --brand-strong: #152040;
+        --secondary: #4caf50;
+        --accent: #4caf50;
+        --accent-strong: #3f9a44;
+        --surface: #ffffff;
+        --surface-warm: #f7f4eb;
+        --line: #e2e0d7;
+        --shadow: 0 24px 60px rgba(27, 39, 79, 0.16);
+        --font-display: "Garamond", "Times New Roman", serif;
+        --font-body: "Trebuchet MS", "Gill Sans", "Verdana", sans-serif;
       }
 
       * {
@@ -36,9 +32,9 @@
 
       body {
         margin: 0;
-        font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
         color: var(--ink);
-        background: var(--bg);
+        background: radial-gradient(circle at top, #ffffff 0%, #f7f4eb 45%, #f2efe4 100%);
         min-height: 100vh;
       }
 
@@ -50,32 +46,116 @@
       .page {
         max-width: 1140px;
         margin: 0 auto;
-        padding: 28px 24px 60px;
+        padding: 0 24px 60px;
+      }
+
+      .top-bar {
+        height: 14px;
+        background: linear-gradient(90deg, var(--brand) 0%, #2a3b72 50%, var(--brand) 100%);
+        box-shadow: 0 8px 18px rgba(27, 39, 79, 0.18);
+      }
+
+      .hero-shell {
+        color: #ffffff;
+        background-image:
+          linear-gradient(180deg, rgba(27, 39, 79, 0.75) 0%, rgba(27, 39, 79, 0.5) 60%, rgba(27, 39, 79, 0.3) 100%),
+          radial-gradient(circle at 10% 30%, rgba(255, 255, 255, 0.35), transparent 40%),
+          radial-gradient(circle at 70% 20%, rgba(76, 175, 80, 0.45), transparent 45%),
+          radial-gradient(circle at 85% 70%, rgba(255, 152, 0, 0.35), transparent 40%),
+          linear-gradient(135deg, #1b274f 0%, #2a3b72 42%, #1b274f 100%);
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 18px 50px rgba(27, 39, 79, 0.22);
+      }
+
+      .hero-shell .page {
+        padding-top: 0;
+      }
+
+      .hero-shell nav {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .hero-shell .cta.secondary {
+        border-color: rgba(255, 255, 255, 0.35);
+      }
+
+      .hero-shell .cta.primary {
+        box-shadow: 0 12px 24px rgba(10, 16, 34, 0.32);
+      }
+
+      .hero-band {
+        margin-top: 0;
+        padding: 12px 0 34px;
+        color: #ffffff;
+      }
+
+      .hero-band .hero {
+        margin-top: 0;
+      }
+
+      .hero-band h1,
+      .hero-band p {
+        color: #ffffff;
+      }
+
+      .hero-band .hero p {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .hero-band .status-banner {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .hero-band .status-banner svg {
+        fill: #ffffff;
+      }
+
+      .hero-band .hero-card {
+        background: rgba(15, 24, 48, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        box-shadow: 0 20px 40px rgba(10, 16, 34, 0.35);
+      }
+
+      .hero-band .hero-card h3 {
+        color: #ffffff;
+      }
+
+      .hero-band .hero-card strong {
+        color: #ffffff;
+      }
+
+      .hero-band .hero-card div {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .hero-band .dot {
+        background: linear-gradient(135deg, #ffffff, rgba(76, 175, 80, 0.9));
       }
 
       header {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 18px;
-      }
-
-      header .store-badges {
-        margin-left: auto;
+        padding-top: 28px;
       }
 
       .logo {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
         font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.02em;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
       }
 
       .logo img {
-        width: 220px;
+        width: 260px;
         height: auto;
         object-fit: contain;
         max-width: 100%;
@@ -100,14 +180,14 @@
       }
 
       .cta.primary {
-        background: var(--brand-blue);
+        background: var(--accent);
         color: #fff;
-        box-shadow: 0 12px 24px rgba(0, 87, 184, 0.28);
+        box-shadow: 0 12px 24px rgba(76, 175, 80, 0.28);
       }
 
       .cta.secondary {
         background: transparent;
-        border-color: var(--stroke);
+        border-color: var(--line);
       }
 
       .cta:hover {
@@ -124,7 +204,7 @@
       }
 
       h1 {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
         font-size: clamp(2.6rem, 4vw, 3.8rem);
         margin: 0 0 20px;
         letter-spacing: -0.01em;
@@ -173,7 +253,13 @@
         width: 18px;
         height: 18px;
         flex-shrink: 0;
-        fill: var(--brand-blue);
+        fill: var(--brand);
+      }
+
+      .hero-status {
+        margin-top: 26px;
+        display: flex;
+        justify-content: center;
       }
 
       .status-banner {
@@ -182,30 +268,30 @@
         gap: 10px;
         padding: 10px 14px;
         border-radius: 14px;
-        background: rgba(0, 87, 184, 0.08);
-        color: var(--brand-navy);
-        border: 1px solid rgba(0, 87, 184, 0.2);
+        background: rgba(27, 39, 79, 0.08);
+        color: var(--brand);
+        border: 1px solid rgba(27, 39, 79, 0.2);
         font-weight: 600;
       }
 
       .status-banner svg {
         width: 18px;
         height: 18px;
-        fill: var(--brand-blue);
+        fill: var(--brand);
         flex-shrink: 0;
       }
 
       .hero-card {
-        background: var(--panel);
+        background: var(--surface);
         border-radius: 26px;
         padding: 28px;
-        border: 1px solid var(--stroke);
+        border: 1px solid var(--line);
         box-shadow: var(--shadow);
       }
 
       .hero-card h3 {
         margin: 0 0 14px;
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
       }
 
       .list {
@@ -224,7 +310,7 @@
         height: 10px;
         margin-top: 6px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--brand-blue), var(--accent));
+        background: linear-gradient(135deg, var(--brand), var(--accent));
       }
 
       section {
@@ -232,7 +318,7 @@
       }
 
       .section-title {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
         font-size: 2rem;
         margin-bottom: 16px;
       }
@@ -252,14 +338,14 @@
       .feature-card {
         padding: 22px;
         border-radius: 20px;
-        border: 1px solid var(--stroke);
-        background: var(--panel);
-        box-shadow: 0 16px 40px rgba(2, 58, 117, 0.08);
+        border: 1px solid var(--line);
+        background: var(--surface);
+        box-shadow: 0 16px 40px rgba(27, 39, 79, 0.08);
       }
 
       .feature-card h4 {
         margin: 0 0 10px;
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
       }
 
       .steps {
@@ -273,19 +359,19 @@
         gap: 16px;
         padding: 18px 20px;
         border-radius: 18px;
-        border: 1px dashed var(--stroke);
-        background: var(--panel);
+        border: 1px dashed var(--line);
+        background: var(--surface);
       }
 
       .step-number {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
         font-weight: 700;
         width: 38px;
         height: 38px;
         display: grid;
         place-items: center;
         border-radius: 12px;
-        background: rgba(0, 87, 184, 0.14);
+        background: rgba(27, 39, 79, 0.14);
       }
 
       .waitlist {
@@ -294,8 +380,8 @@
         align-items: center;
         padding: 26px;
         border-radius: 22px;
-        background: linear-gradient(120deg, #ffffff 0%, var(--panel) 100%);
-        border: 1px solid var(--stroke);
+        background: linear-gradient(120deg, #ffffff 0%, var(--surface-warm) 100%);
+        border: 1px solid var(--line);
       }
 
       .waitlist form {
@@ -307,7 +393,7 @@
       input[type="email"] {
         flex: 1 1 240px;
         border-radius: 999px;
-        border: 1px solid var(--stroke);
+        border: 1px solid var(--line);
         padding: 12px 16px;
         font-size: 1rem;
       }
@@ -315,14 +401,14 @@
       button {
         cursor: pointer;
         border: none;
-        font-family: "Manrope", sans-serif;
+        font-family: var(--font-body);
       }
 
       footer {
         margin-top: 80px;
         color: var(--muted);
         font-size: 0.95rem;
-        border-top: 1px solid var(--stroke);
+        border-top: 1px solid var(--line);
         background: linear-gradient(180deg, transparent, rgba(0,0,0,0.01));
         padding: 28px 18px;
         border-radius: 12px;
@@ -350,7 +436,7 @@
       }
 
       .footer-logo {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-display);
         font-weight: 700;
         color: var(--ink);
         font-size: 1.05rem;
@@ -382,7 +468,11 @@
 
       @media (max-width: 1024px) {
         .page {
-          padding: 24px 20px 52px;
+          padding: 0 20px 52px;
+        }
+
+        header {
+          padding-top: 24px;
         }
 
         .hero {
@@ -391,6 +481,10 @@
 
         .hero-card {
           padding: 24px;
+        }
+
+        .hero-band {
+          padding: 8px 0 30px;
         }
       }
 
@@ -414,46 +508,6 @@
         width: 24px;
         height: 24px;
         fill: #fff;
-      }
-
-      .store-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .store-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 9px 12px;
-        border-radius: 12px;
-        background: var(--panel-strong);
-        color: var(--ink);
-        font-size: 0.85rem;
-        font-weight: 600;
-        border: 1px solid var(--stroke);
-        box-shadow: 0 10px 24px rgba(2, 58, 117, 0.08);
-      }
-
-      .store-badge span {
-        display: block;
-        font-size: 0.7rem;
-        font-weight: 500;
-        opacity: 0.7;
-      }
-
-      .store-badge strong {
-        display: block;
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-
-      .store-badge svg {
-        width: 22px;
-        height: 22px;
-        fill: var(--ink);
-        flex-shrink: 0;
       }
 
       .reveal {
@@ -494,15 +548,6 @@
           align-items: center;
         }
 
-        header .store-badges {
-          margin-left: 0;
-        }
-
-        .store-badges {
-          width: 100%;
-          justify-content: center;
-        }
-
         .logo {
           width: 100%;
           justify-content: center;
@@ -538,13 +583,17 @@
         }
 
         .logo img {
-          width: 170px;
+          width: 200px;
         }
       }
 
       @media (max-width: 600px) {
         .page {
-          padding: 20px 16px 44px;
+          padding: 0 16px 44px;
+        }
+
+        header {
+          padding-top: 20px;
         }
 
         h1 {
@@ -572,91 +621,77 @@
           flex: 1 1 160px;
           justify-content: center;
         }
+
+        .hero-band {
+          padding: 6px 0 26px;
+        }
       }
     </style>
   </head>
   <body>
+    <div class="top-bar" aria-hidden="true"></div>
+    <div class="hero-shell">
+      <div class="page">
+        <header>
+          <div class="logo">
+            <img src="assets/logo-dark.svg" alt="Vamoali logo"/>
+          </div>
+        </header>
+      </div>
+      <div class="hero-band">
+        <div class="page">
+          <section class="hero" id="manifesto">
+            <div>
+              <h1 class="reveal">Hotéis e passagens aéreas com foco total em você.</h1>
+              <p class="reveal delay-1">
+                A Vamoali facilita a compra de viagens com clareza, segurança e
+                apoio humano. Sem promessas falsas: só o que faz sentido para o seu
+                perfil, no seu tempo.
+              </p>
+            </div>
+
+            <div class="hero-card reveal delay-2">
+              <h3>Viagem simples e segura</h3>
+              <div class="list">
+                <div class="list-item">
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Preço transparente.</strong>
+                    <div>Sem taxas escondidas ou promessas irreais.</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Reserva confiável.</strong>
+                    <div>Hotéis e companhias avaliados com critério.</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Atendimento real.</strong>
+                    <div>Você fala com pessoas, não com robôs.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
     <div class="page">
-      <header>
-        <div class="logo">
-          <img src="assets/logo.png" alt="vamoali.app logo"/>
-        </div>
-
-        <div class="store-badges">
-          <a class="store-badge" href="#" aria-label="Baixar na App Store">
+      <section class="hero-status">
+        <div class="hero-meta reveal delay-3">
+          <div class="status-banner" role="status" aria-live="polite">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M17.2 6.4c-.9 1-2 1.6-3.3 1.5-.1-1.3.5-2.6 1.3-3.4.9-.9 2.4-1.5 3.5-1.6.1 1.3-.4 2.5-1.5 3.5zM20.5 17.2c-.4 1-1 2-1.7 2.9-1 1.3-1.9 2.2-3.5 2.2-1.5 0-1.9-.9-3.7-.9s-2.2.9-3.7.9c-1.5 0-2.6-1-3.6-2.3-2-2.7-3.5-7.6-1.5-11 1-1.6 2.7-2.6 4.6-2.6 1.5 0 2.9 1 3.7 1s2.4-1.2 4.1-1c.7 0 2.7.3 3.9 2.1-.1.1-2.3 1.3-2.2 3.9 0 3.1 2.8 4.1 2.9 4.1-.1.3-.4 1.1-.8 1.7z"
-              />
+              <path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2zm0 4a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 12 6zm1.5 11h-3a1 1 0 0 1 0-2h1v-4h-1a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v5h1a1 1 0 0 1 0 2z"/>
             </svg>
-            <div>
-              <span>Disponível na</span>
-              <strong>App Store</strong>
-            </div>
-          </a>
-          <a class="store-badge" href="#" aria-label="Baixar no Google Play">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M4.8 3.4l10.2 8.2-2.6 2.4-7.6-10.6zM3.8 2.6c-.4.3-.6.8-.6 1.3v16.2c0 .6.3 1.1.7 1.3l7.2-7-7.3-11.8zM20.2 11c.6.4.6 1.3 0 1.7l-3.1 2.2-3-2.8 3-2.8 3.1 1.7zM5.1 21l7.4-7.1 2.6 2.5-10.2 8.3c-.1-.1-.1-.4.2-.7z"
-              />
-            </svg>
-            <div>
-              <span>Disponível no</span>
-              <strong>Google Play</strong>
-            </div>
-          </a>
-        </div>
-      </header>
-
-      <section class="hero" id="manifesto">
-        <div>
-          <h1 class="reveal">Hotéis e passagens aéreas com foco total em você.</h1>
-          <p class="reveal delay-1">
-            A vamoali.app facilita a compra de viagens com clareza, segurança e
-            apoio humano. Sem promessas falsas: só o que faz sentido para o seu
-            perfil, no seu tempo.
-          </p>
-
-        </div>
-
-        <div class="hero-card reveal delay-2">
-          <h3>Viagem simples e segura</h3>
-          <div class="list">
-            <div class="list-item">
-              <span class="dot"></span>
-              <div>
-                  <strong>Preço transparente.</strong>
-                  <div>Sem taxas escondidas ou promessas irreais.</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <span class="dot"></span>
-              <div>
-                  <strong>Reserva confiável.</strong>
-                  <div>Hotéis e companhias avaliados com critério.</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <span class="dot"></span>
-              <div>
-                <strong>Atendimento real.</strong>
-                  <div>Você fala com pessoas, não com robôs.</div>
-              </div>
-            </div>
+            Estamos construindo essa plataforma neste momento.
           </div>
         </div>
       </section>
-
-      <section>
-          <div class="hero-meta reveal delay-3">
-            <div class="status-banner" role="status" aria-live="polite">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2zm0 4a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 12 6zm1.5 11h-3a1 1 0 0 1 0-2h1v-4h-1a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v5h1a1 1 0 0 1 0 2z"/>
-              </svg>
-              Estamos construindo essa plataforma neste momento.
-            </div>
-          </div>
-        </section>
 
       <section id="recursos">
         <div class="section-title">Benefícios para quem quer viajar bem</div>
@@ -721,7 +756,7 @@
       <footer>
         <div class="footer-grid">
           <div class="footer-col">
-            <div class="footer-logo">vamoali.app</div>
+            <div class="footer-logo">Vamoali</div>
             <div>Hotéis e passagens aéreas com foco total em você — tecnologia e apoio humano.</div>
           </div>
           <div class="footer-col footer-links">
@@ -731,7 +766,7 @@
             <a href="mailto:contato@vamoali.app">Contato</a>
           </div>
         </div>
-        <div class="footer-bottom">vamoali.app © 2026 — Tecnologia para buscar hotéis e passagens aéreas utilizando IA para uma melhor experiência.</div>
+        <div class="footer-bottom">Vamoali © 2026 — Tecnologia para buscar hotéis e passagens aéreas utilizando IA para uma melhor experiência.</div>
       </footer>
     </div>
   </body>
