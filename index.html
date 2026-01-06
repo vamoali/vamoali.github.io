@@ -8,6 +8,12 @@
       name="description"
       content="Vamoali facilita a compra de hotéis e passagens aéreas com transparência, segurança e foco no usuário."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: light;
@@ -22,8 +28,8 @@
         --surface-warm: #f7f4eb;
         --line: #e2e0d7;
         --shadow: 0 24px 60px rgba(27, 39, 79, 0.16);
-        --font-display: "Garamond", "Times New Roman", serif;
-        --font-body: "Trebuchet MS", "Gill Sans", "Verdana", sans-serif;
+        --font-display: "Montserrat", "Trebuchet MS", "Gill Sans", "Verdana", sans-serif;
+        --font-body: "Montserrat", "Trebuchet MS", "Gill Sans", "Verdana", sans-serif;
       }
 
       * {
@@ -353,6 +359,41 @@
         gap: 18px;
       }
 
+      .typeform-cta {
+        margin: 42px auto 28px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .typeform-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--brand) 0%, #2a3b72 50%, var(--brand) 100%);
+        border: 1px solid rgba(27, 39, 79, 0.45);
+        box-shadow: 0 18px 35px rgba(27, 39, 79, 0.28);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .typeform-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 40px rgba(27, 39, 79, 0.35);
+        background: linear-gradient(135deg, #223161 0%, #2f4280 50%, #223161 100%);
+      }
+
+      .typeform-button:focus-visible {
+        outline: 2px solid rgba(15, 23, 42, 0.5);
+        outline-offset: 3px;
+      }
+
       .step {
         display: flex;
         align-items: center;
@@ -642,11 +683,12 @@
         <div class="page">
           <section class="hero" id="manifesto">
             <div>
-              <h1 class="reveal">Hotéis e passagens aéreas com foco total em você.</h1>
+              <h1 class="reveal">Hotéis e passagens do seu jeito.</h1>
               <p class="reveal delay-1">
                 A Vamoali facilita a compra de viagens com clareza, segurança e
                 apoio humano. Sem promessas falsas: só o que faz sentido para o seu
-                perfil, no seu tempo.
+                perfil, no seu tempo. Você escolhe com calma e a gente acompanha
+                cada etapa, do planejamento ao embarque.
               </p>
             </div>
 
@@ -723,49 +765,18 @@
         </div>
       </section>
 
-      <section id="como">
-        <div class="section-title">Como funciona</div>
-        <div class="steps">
-          <div class="step reveal">
-            <div class="step-number">1</div>
-            <div>
-              <strong>Conte seu destino e preferências.</strong>
-              <div>Diga para onde quer ir, datas e preferências — nossa IA
-              aprende seu perfil para buscar opções relevantes de roteiro.</div>
-            </div>
-          </div>
-          <div class="step reveal delay-1">
-            <div class="step-number">2</div>
-            <div>
-              <strong>Receba opções selecionadas pela IA.</strong>
-              <div>A IA filtra e ordena hotéis e voos que combinam com você,
-              apresentando comparações claras para facilitar a escolha.</div>
-            </div>
-          </div>
-          <div class="step reveal delay-2">
-            <div class="step-number">3</div>
-            <div>
-              <strong>Confirme com apoio humano.</strong>
-              <div>Finalize com total transparência: nossa equipe está pronta
-              para ajudar quando você precisar.</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div class="typeform-cta reveal">
+        <a
+          class="typeform-button"
+          href="https://vamoali.typeform.com/to/yTdzNzT1"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Participar da pesquisa de mercado
+        </a>
+      </div>
 
       <footer>
-        <div class="footer-grid">
-          <div class="footer-col">
-            <div class="footer-logo">Vamoali</div>
-            <div>Hotéis e passagens aéreas com foco total em você — tecnologia e apoio humano.</div>
-          </div>
-          <div class="footer-col footer-links">
-            <a href="#manifesto">Proposta</a>
-            <a href="#recursos">Benefícios</a>
-            <a href="#como">Como funciona</a>
-            <a href="mailto:contato@vamoali.app">Contato</a>
-          </div>
-        </div>
         <div class="footer-bottom">Vamoali © 2026 — Tecnologia para buscar hotéis e passagens aéreas utilizando IA para uma melhor experiência.</div>
       </footer>
     </div>
