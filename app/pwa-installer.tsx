@@ -56,8 +56,12 @@ export default function PwaInstaller() {
   }
 
   return (
-    <dialog className="modal" open>
-      <div className="modal-box">
+    <div className="fixed bottom-6 right-6 z-50 w-[calc(100%-3rem)] max-w-sm">
+      <div
+        role="dialog"
+        aria-modal="true"
+        className="rounded-2xl border border-base-200 bg-base-100 p-5 shadow-xl"
+      >
         <h3 className="text-lg font-bold">Instalar VamoAli</h3>
         <p className="mt-2 text-sm text-base-content/70">
           Tenha acesso rápido e uma experiência mais fluida instalando o app no seu
@@ -76,11 +80,6 @@ export default function PwaInstaller() {
           </button>
         </div>
       </div>
-      <form method="dialog" className="modal-backdrop">
-        <button type="button" onClick={() => setOpen(false)}>
-          close
-        </button>
-      </form>
-    </dialog>
+    </div>
   );
 }
