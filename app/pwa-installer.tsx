@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  AndroidLogo,
+  AppleLogo,
+  WindowsLogo
+} from "@phosphor-icons/react";
+import { useEffect, useMemo, useState } from "react";
 
 type BeforeInstallPromptEvent = Event & {
   prompt: () => Promise<void>;
@@ -10,6 +15,32 @@ type BeforeInstallPromptEvent = Event & {
 export default function PwaInstaller() {
   const [promptEvent, setPromptEvent] = useState<BeforeInstallPromptEvent | null>(null);
   const [open, setOpen] = useState(false);
+  const platformInfo = useMemo(() => {
+    if (typeof navigator === "undefined") {
+      return { label: "Seu dispositivo", icon: null };
+    }
+
+    const ua = navigator.userAgent.toLowerCase();
+    const isAndroid = ua.includes("android");
+    const isIOS = /iphone|ipad|ipod/.test(ua);
+    const isWindows = ua.includes("windows");
+    const isMac = ua.includes("mac os") && !isIOS;
+
+    if (isAndroid) {
+      return { label: "Android", icon: AndroidLogo };
+    }
+    if (isIOS) {
+      return { label: "iOS", icon: AppleLogo };
+    }
+    if (isWindows) {
+      return { label: "Windows", icon: WindowsLogo };
+    }
+    if (isMac) {
+      return { label: "macOS", icon: AppleLogo };
+    }
+
+    return { label: "Seu dispositivo", icon: null };
+  }, []);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") {
@@ -55,6 +86,8 @@ export default function PwaInstaller() {
     return null;
   }
 
+  const PlatformIcon = platformInfo.icon;
+
   return (
     <div className="fixed bottom-6 right-6 z-50 w-[calc(100%-3rem)] max-w-sm">
       <div
@@ -63,10 +96,16 @@ export default function PwaInstaller() {
         className="rounded-2xl border border-base-200 bg-base-100 p-5 shadow-xl"
       >
         <h3 className="text-lg font-bold">Instalar VamoAli</h3>
-        <p className="mt-2 text-sm text-base-content/70">
-          Tenha acesso rápido e uma experiência mais fluida instalando o app no seu
-          dispositivo.
-        </p>
+        <div className="mt-2 flex items-center justify-between gap-3 text-sm text-base-content/70">
+          <span>
+            Tenha acesso rápido e uma experiência mais fluida instalando o app no seu
+            dispositivo.
+          </span>
+          <span className="flex items-center gap-2 rounded-full bg-base-200 px-3 py-1 text-xs font-semibold text-base-content">
+            {platformInfo.label}
+            {PlatformIcon ? <PlatformIcon size={16} weight="bold" /> : null}
+          </span>
+        </div>
         <div className="mt-6 flex justify-end gap-2">
           <button
             className="btn btn-ghost"
