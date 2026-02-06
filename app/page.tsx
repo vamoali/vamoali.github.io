@@ -300,10 +300,13 @@ export default function HomePage() {
                   </div>
                 </button>
                 <div className="flex items-stretch px-5 pb-4 md:px-0 md:pb-0 md:pr-0">
-                  <button className="btn btn-primary h-12 w-full rounded-full px-8 text-sm text-white md:h-full md:min-w-[170px] md:rounded-l-full md:rounded-r-full">
+                  <Link
+                    href="/hotels"
+                    className="btn btn-primary h-12 w-full rounded-full px-8 text-sm text-white md:h-full md:min-w-[170px] md:rounded-l-full md:rounded-r-full"
+                  >
                     <MagnifyingGlass size={18} weight="bold" />
                     Procurar
-                  </button>
+                  </Link>
                 </div>
               </div>
             </form>

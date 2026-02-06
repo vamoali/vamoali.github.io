@@ -6,11 +6,14 @@ export const metadata = {
   title: "VamoAli — experiências locais com curadoria",
   description: "Descubra experiências locais com curadoria, roteiros vivos e encontros que viram história.",
   manifest: "/manifest.json",
-  themeColor: "#10b981",
   icons: {
     icon: "/images/icon.svg",
     apple: "/images/icon.svg"
   }
+};
+
+export const viewport = {
+  themeColor: "#10b981"
 };
 
 export default function RootLayout({
