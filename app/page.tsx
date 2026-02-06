@@ -63,6 +63,14 @@ export default function HomePage() {
   const [checkIn, setCheckIn] = useState<Date | null>(null);
   const [checkOut, setCheckOut] = useState<Date | null>(null);
   const searchPanelRef = useRef<HTMLDivElement | null>(null);
+  const whenButtonRef = useRef<HTMLButtonElement | null>(null);
+  const guestsButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [panelAnchor, setPanelAnchor] = useState<{ top: number; left: number; width: number }>({
+    top: 0,
+    left: 0,
+    width: 0
+  });
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,6 +79,13 @@ export default function HomePage() {
 
     return () => clearInterval(interval);
   }, [slides.length]);
+
+  useEffect(() => {
+    const updateViewport = () => setViewportWidth(window.innerWidth);
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -138,7 +153,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-base-100">
-      <section className="relative z-40 min-h-[360px] bg-cover bg-center md:min-h-[420px]">
+      <section className="relative z-40 min-h-[460px] bg-cover bg-center md:min-h-[420px]">
         {slides.map((slide, index) => (
           <div
             key={slide.city}
@@ -196,7 +211,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between gap-6">
               <div aria-hidden="true" />
             </div>
-            <div className="mt-10 flex flex-col gap-2">
+            <div className="mt-1 md:mt-10 flex flex-col gap-2">
               <h1 className="text-center text-3xl font-bold text-white drop-shadow-sm md:text-5xl">
                 Encontre experiências {" "}
                 <span className="text-rotate align-baseline">
@@ -212,8 +227,8 @@ export default function HomePage() {
 
           <div className="relative -mb-24" ref={searchPanelRef}>
             <form className="flex flex-col gap-4">
-              <div className="flex w-full items-stretch overflow-hidden rounded-full bg-base-100 shadow-lg">
-                <div className="flex flex-1 items-center gap-3 px-5 py-3">
+              <div className="mx-auto flex w-full max-w-4xl flex-col overflow-hidden rounded-3xl bg-base-100 shadow-lg md:flex-row md:items-stretch md:rounded-full">
+                <div className="flex flex-1 items-center gap-3 px-5 py-3 md:py-3">
                   <div className="text-primary">
                     <MapPin size={22} weight="bold" />
                   </div>
@@ -225,9 +240,21 @@ export default function HomePage() {
                 <div className="hidden h-12 w-px bg-base-200 md:block" />
                 <button
                   type="button"
-                  className="flex flex-1 items-center gap-3 px-5 py-3 text-left"
+                  className="flex flex-1 items-center gap-3 px-5 py-3 text-left md:py-3"
+                  ref={whenButtonRef}
                   onClick={() =>
-                    setActiveSearchPanel(activeSearchPanel === "when" ? null : "when")
+                    setActiveSearchPanel((current) => {
+                      const next = current === "when" ? null : "when";
+                      if (next && whenButtonRef.current) {
+                        const rect = whenButtonRef.current.getBoundingClientRect();
+                        setPanelAnchor({
+                          top: rect.bottom + 8,
+                          left: rect.left,
+                          width: rect.width
+                        });
+                      }
+                      return next;
+                    })
                   }
                 >
                   <div className="text-primary">
@@ -245,9 +272,21 @@ export default function HomePage() {
                 <div className="hidden h-12 w-px bg-base-200 md:block" />
                 <button
                   type="button"
-                  className="flex flex-1 items-center gap-3 px-5 py-3 text-left"
+                  className="flex flex-1 items-center gap-3 px-5 py-3 text-left md:py-3"
+                  ref={guestsButtonRef}
                   onClick={() =>
-                    setActiveSearchPanel(activeSearchPanel === "guests" ? null : "guests")
+                    setActiveSearchPanel((current) => {
+                      const next = current === "guests" ? null : "guests";
+                      if (next && guestsButtonRef.current) {
+                        const rect = guestsButtonRef.current.getBoundingClientRect();
+                        setPanelAnchor({
+                          top: rect.bottom + 8,
+                          left: rect.left,
+                          width: rect.width
+                        });
+                      }
+                      return next;
+                    })
                   }
                 >
                   <div className="text-primary">
@@ -260,8 +299,8 @@ export default function HomePage() {
                     </p>
                   </div>
                 </button>
-                <div className="flex items-center px-3">
-                  <button className="btn btn-primary rounded-full px-6 py-2 text-sm text-white">
+                <div className="flex items-stretch px-5 pb-4 md:px-0 md:pb-0 md:pr-0">
+                  <button className="btn btn-primary h-12 w-full rounded-full px-8 text-sm text-white md:h-full md:min-w-[170px] md:rounded-l-full md:rounded-r-full">
                     <MagnifyingGlass size={18} weight="bold" />
                     Procurar
                   </button>
@@ -270,7 +309,13 @@ export default function HomePage() {
             </form>
 
             {activeSearchPanel === "when" ? (
-              <div className="absolute left-1/2 top-full z-[100] mt-3 w-full max-w-4xl -translate-x-1/2 rounded-3xl bg-base-100 p-5 shadow-2xl">
+              <div
+                className="fixed z-[100] w-full max-w-4xl rounded-3xl bg-base-100 p-5 shadow-2xl"
+                style={{
+                  top: panelAnchor.top,
+                  left: Math.min(panelAnchor.left, Math.max(0, viewportWidth - 900))
+                }}
+              >
                 <div className="mt-3 flex items-center justify-between">
                   <button className="btn btn-ghost btn-circle btn-sm">◀</button>
                   <p className="text-sm font-semibold text-base-content">fevereiro 2026</p>
@@ -325,7 +370,13 @@ export default function HomePage() {
             ) : null}
 
             {activeSearchPanel === "guests" ? (
-              <div className="absolute right-0 top-full z-[100] mt-3 w-full max-w-2xl rounded-3xl bg-base-100 p-5 shadow-2xl">
+              <div
+                className="fixed z-[100] w-full max-w-md rounded-3xl bg-base-100 p-5 shadow-2xl"
+                style={{
+                  top: panelAnchor.top,
+                  left: Math.min(panelAnchor.left, Math.max(0, viewportWidth - 420))
+                }}
+              >
                 <div className="space-y-4">
                   {[
                     {
