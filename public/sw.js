@@ -1,4 +1,4 @@
-const CACHE_NAME = "vamoali-pwa-v1";
+const CACHE_NAME = "vamoali-pwa-v2";
 const CORE_ASSETS = ["/", "/manifest.json", "/images/icon.svg"];
 
 self.addEventListener("install", (event) => {
